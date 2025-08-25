@@ -6,12 +6,12 @@
 
 double LaunchSpeed();
 double DegreesOfLaunch();
-double CalculateProjectileVy(float speed, float degrees);
-double CalculateProjectileVx(float speed, float degrees);
-double CalculateProjectileTup(float vY);
-double CalculateTotalTup(float timeUp);
-double CalculateMaxHeigth(float velY);
-double CalculateRange(float velX, float totalTimeUp);
+double CalculateProjectileVy(double speed, double degrees);
+double CalculateProjectileVx(double speed, double degrees);
+double CalculateProjectileTup(double vY);
+double CalculateTotalTup(double timeUp);
+double CalculateMaxHeigth(double velY);
+double CalculateRange(double velX, double totalTimeUp);
 char userInput();
 
 
