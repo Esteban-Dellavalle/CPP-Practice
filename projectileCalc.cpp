@@ -4,14 +4,14 @@
 #define PI 3.141592
 
 
-float LaunchSpeed();
-float DegreesOfLaunch();
-float CalculateProjectileVy(float speed, float degrees);
-float CalculateProjectileVx(float speed, float degrees);
-float CalculateProjectileTup(float vY);
-float CalculateTotalTup(float timeUp);
-float CalculateMaxHeigth(float velY);
-float CalculateRange(float velX, float totalTimeUp);
+double LaunchSpeed();
+double DegreesOfLaunch();
+double CalculateProjectileVy(float speed, float degrees);
+double CalculateProjectileVx(float speed, float degrees);
+double CalculateProjectileTup(float vY);
+double CalculateTotalTup(float timeUp);
+double CalculateMaxHeigth(float velY);
+double CalculateRange(float velX, float totalTimeUp);
 char userInput();
 
 
@@ -20,24 +20,23 @@ int main()
     char userInp;
 
     userInp = userInput();
-
-    do
+    while(userInp == 'y')
     {
-        float launchDegrees = DegreesOfLaunch();
-        float speedLaunch = LaunchSpeed();
-        float vY = CalculateProjectileVy(speedLaunch, launchDegrees);
-        float vX = CalculateProjectileVx(speedLaunch, launchDegrees);
-        float timeUp = CalculateProjectileTup(vY);
-        float totalTup = CalculateTotalTup(timeUp);
-        float maxHeight = CalculateMaxHeigth(vY);
-        float rangeProjectile = CalculateRange(vX, totalTup);
+        double launchDegrees = DegreesOfLaunch();
+        double speedLaunch = LaunchSpeed();
+        double vY = CalculateProjectileVy(speedLaunch, launchDegrees);
+        double vX = CalculateProjectileVx(speedLaunch, launchDegrees);
+        double timeUp = CalculateProjectileTup(vY);
+        double totalTup = CalculateTotalTup(timeUp);
+        double maxHeight = CalculateMaxHeigth(vY);
+        double rangeProjectile = CalculateRange(vX, totalTup);
 
         std::cout << "Launch degrees: " << launchDegrees << std::endl << "Launch speed: " << speedLaunch << std::endl << "Total time up: " << totalTup << std::endl << "Range of projectile: " << rangeProjectile << std::endl;
         std::cout << "Max Height: " << maxHeight << std::endl;
         userInp = userInput();
 
     }
-    while(userInp == 'y');
+    
     
     std::cout << "Bye." << std::endl;
     
@@ -48,56 +47,56 @@ int main()
 
 
 
-float LaunchSpeed()
+double LaunchSpeed()
 {
-    float launchSpd = 0;
+    double launchSpd = 0;
     std::cout << "Enter the launch speed of the projectile: " << std::endl;
     std::cin >> launchSpd;
     return launchSpd;
 }
 
-float DegreesOfLaunch()
+double DegreesOfLaunch()
 {
-    float degreesLaunch = 0;
+    double degreesLaunch = 0;
     std::cout << "Enter the degrees of the launch: " << std::endl;
     std::cin >> degreesLaunch;
     return degreesLaunch;
 }
 
-float CalculateProjectileVy(float speed, float degrees)
+double CalculateProjectileVy(double speed, double degrees)
 {
-    float calculateVy = speed * sin (degrees * (PI / 180.0));
+    double calculateVy = speed * sin (degrees * (PI / 180.0));
     return calculateVy;
 }
 
 
-float CalculateProjectileVx(float speed, float degrees)
+double CalculateProjectileVx(double speed, double degrees)
 {
-    float calculateVx = speed * cos (degrees * (PI / 180.0));
+    double calculateVx = speed * cos (degrees * (PI / 180.0));
     return calculateVx;
 }
 
-float CalculateProjectileTup(float vY)
+double CalculateProjectileTup(double vY)
 {
-    float calculateTup = vY / GRAVITY_OF_EARTH;
+    double calculateTup = vY / GRAVITY_OF_EARTH;
     return calculateTup;
 }
 
-float CalculateTotalTup(float timeUp)
+double CalculateTotalTup(double timeUp)
 {
-    float calculateTotal = timeUp * 2;
+    double calculateTotal = timeUp * 2;
     return calculateTotal;
 }
 
-float CalculateMaxHeigth(float velY)
+double CalculateMaxHeigth(double velY)
 {
-    float maxHeigth = (velY * velY) / (2 * GRAVITY_OF_EARTH);
+    double maxHeigth = (velY * velY) / (2 * GRAVITY_OF_EARTH);
     return maxHeigth;
 }
 
-float CalculateRange(float velX, float totalTimeUp)
+double CalculateRange(double velX, double totalTimeUp)
 {
-    float totalRange = velX * totalTimeUp;
+    double totalRange = velX * totalTimeUp;
     return totalRange;
 }
 
