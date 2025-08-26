@@ -18,30 +18,42 @@ char userInput();
 int main()
 {   
     char userInp;
-
     userInp = userInput();
-    while(userInp == 'y')
+
+    while(userInp != 'y' && userInp != 'x')
     {
-        double launchDegrees = DegreesOfLaunch();
-        double speedLaunch = LaunchSpeed();
-        double vY = CalculateProjectileVy(speedLaunch, launchDegrees);
-        double vX = CalculateProjectileVx(speedLaunch, launchDegrees);
-        double timeUp = CalculateProjectileTup(vY);
-        double totalTup = CalculateTotalTup(timeUp);
-        double maxHeight = CalculateMaxHeigth(vY);
-        double rangeProjectile = CalculateRange(vX, totalTup);
-
-        std::cout << "Launch degrees: " << launchDegrees << std::endl << "Launch speed: " << speedLaunch << std::endl << "Total time up: " << totalTup << std::endl << "Range of projectile: " << rangeProjectile << std::endl;
-        std::cout << "Max Height: " << maxHeight << std::endl;
+        
+        std::cout << "Try again." << std::endl;
         userInp = userInput();
-
+                        
+    }
+    if(userInp == 'x')
+    {
+        std::cout << "Bye." << std::endl;
     }
     
-    
-    std::cout << "Bye." << std::endl;
-    
-    
+            while(userInp == 'y')
+            {
+            double launchDegrees = DegreesOfLaunch();
+            double speedLaunch = LaunchSpeed();
+            double vY = CalculateProjectileVy(speedLaunch, launchDegrees);
+            double vX = CalculateProjectileVx(speedLaunch, launchDegrees);
+            double timeUp = CalculateProjectileTup(vY);
+            double totalTup = CalculateTotalTup(timeUp);
+            double maxHeight = CalculateMaxHeigth(vY);
+            double rangeProjectile = CalculateRange(vX, totalTup);
 
+            std::cout << "Launch degrees: " << launchDegrees << std::endl << "Launch speed: " << speedLaunch << std::endl << "Total time up: " << totalTup << std::endl << "Range of projectile: " << rangeProjectile << std::endl;
+            std::cout << "Max Height: " << maxHeight << std::endl;
+            userInp = userInput();
+            if(userInp == 'x')
+            {
+                std::cout << "Bye." << std::endl;
+            }
+            
+    }
+   
+    
     system("pause");
 }
 
